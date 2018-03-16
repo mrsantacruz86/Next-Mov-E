@@ -26,10 +26,39 @@ The application will be displayed on three main pages.
 * CSS
 * Javascript
 
+## Framework
+
+* Bootstrap 3.7
+
 ## Technologies used
 
-* JQuery
-* REST API's
+* Geo-Location.
+* JQuery.
+    + JQuery UI.
+* REST API's.
     + Fandango
-    + Youtube
+    + Youtube.
     + Omdb.
+
+## Database
+
+* Firebase
+
+### Database Code Snippet
+
+```
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCyNP4-ntc37bN0OtkDNldtNnUoSNSx-S0",
+    authDomain: "next-mov-e.firebaseapp.com",
+    databaseURL: "https://next-mov-e.firebaseio.com",
+    projectId: "next-mov-e",
+    storageBucket: "",
+    messagingSenderId: "903599019806"
+  };
+  firebase.initializeApp(config);
+</script>
+```
