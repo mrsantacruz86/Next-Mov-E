@@ -2,6 +2,11 @@ html {
   position: relative;
   min-height: 100%;
 }
+.wrap{
+  /* background-color: #eaeeff; */
+  /* color: white; */
+  height: 100%;
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -13,12 +18,30 @@ footer {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #d9534f;
+  background-image: url('../img/home-bg.png');
 }
 .header-wrap{
   color: white;
-  background-color: #d9534f;
+  background-image: url('../img/home-bg.png');
+}
+header h1{
+  font-family: 'Monoton', sans-serif !important;
 }
 #pageTitle{
   border-bottom: none;
+}
+#rightPanel{
+  border-left: 1px solid;
+}
+.spacer{
+  height: 15px;
+}
+#displayResults{
+  
+}
+.thumbnail{
+  max-width: 200px;
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
 }
