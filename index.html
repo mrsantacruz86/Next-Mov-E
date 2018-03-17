@@ -41,18 +41,25 @@
     <!-- Login Form Area -->
     <div class="container-fluid" id="introForm">
       <br>
-      <form>
-        <div class="form-group">
-          <label for="recipient-name" class="col-form-label">Username:</label>
-          <input type="text" class="form-control" id="username">
+      <div class="row">
+        <div class="col-md-4">
         </div>
-        <div class="form-group">
-          <label for="message-text" class="col-form-label">Password:</label>
-          <input type="text" class="form-control" id="password">
+        <div class="col-md-4">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Username:</label>
+              <input type="text" class="form-control" id="username">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Password:</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@create">Create Account</button>
+            <button type="button" class="btn btn-primary" data-toggle="" data-target="#loginData" data-whatever="@loginData" id="loginButton">Login</button>
+          </form>
         </div>
-      </form>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@create">Create Account</button>
-      <button type="button" class="btn btn-primary" data-toggle="" data-target="#loginData" data-whatever="@loginData">Login</button>
+        <div class="col-md-4"></div>
+      </div>
     </div>
     <!-- This is the modal code for the sign up form -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,8 +159,9 @@
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/app.js"></script> -->
     <script type="text/javascript" src="assets/js/firebase.js"></script>
+    <script type="text/javascript" src="assets/js/authentication.js"></script>
     <script>
       // this code is for the pop up signup form
 
