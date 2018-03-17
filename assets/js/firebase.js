@@ -12,18 +12,23 @@
 	// Authentication
 	// ________________________________________________________________________________________
   // Create user with email and password
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-	});
+  // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // ...
+  //   console.log(errorCode + "\n" + errorMessage);
+	// });
 	
 
 	// Sign-In user with email and password
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
+  // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // ...
+  //   console.log(errorCode + "\n" + errorMessage);
+  // });
+
+
+  // Methods to implement in case the user is authenticated or not
