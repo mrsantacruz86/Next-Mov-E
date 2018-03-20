@@ -9,21 +9,4 @@
   };
   firebase.initializeApp(config);
 
-	// Authentication
-	// ________________________________________________________________________________________
-  // Create user with email and password
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-	});
 	
-
-	// Sign-In user with email and password
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
