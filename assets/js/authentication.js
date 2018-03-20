@@ -3,14 +3,18 @@ var email;
 var password;
 var user;
 
+function redirectPage(){
+	window.open('../../results.html');
+}
+
 function login(evt) {
 	evt.preventDefault();
 	email = $('#username').val();
 	password = $('#password').val();
-
+	sessionStorage.clear();
 	// Firebase Sign-In user with email and password
 	// Session persistent autentication method
-	user = firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+	firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 		.then(function () {
 			// Existing and future Auth states are now persisted in the current
 			// session only. Closing the window would clear any existing state even
@@ -20,7 +24,8 @@ function login(evt) {
 			return firebase.auth().signInWithEmailAndPassword(email, password);
 		})
 		.then(function(status) {
-			console.log("status is: ", status)
+			// console.log("status is: ", status);
+			redirectPage();
 
 		})
 		.catch(function (error) {
@@ -31,10 +36,8 @@ function login(evt) {
 		});
 }
 
-var loginElement = document.getElementById("login")
-loginElement.onclick = login;
-
-
+var loginBtn = document.getElementById("loginBtn")
+loginBtn.onclick = login; 
 
 $(document).ready(function () {
 	//onClick event for the Login Button
