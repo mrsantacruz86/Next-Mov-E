@@ -2,7 +2,7 @@
 var genre = "romance";
 var posterURL = "http://image.tmdb.org/t/p/w185/";
 var apiKey = "api_key=b92306e1f36bdf25d4bbdf45b0e344e8";
-var showTimeApi = "6uzdzbe7uny7nc23edk38r4d";
+
 
 var discover = "/discover/movie?sort_by=popularity.desc";
 
@@ -77,61 +77,31 @@ function getMovies(genreId){
 	  console.log(response);
 	  //get the name of the movie
 	  var movieNameArray = response.results;
-	  console.log(movieNameArray);
+	  //console.log(movieNameArray);
 	  for(var i = 0; i < movieNameArray.length; i++){
-	  	console.log("Title: " + movieNameArray[i].title + " (" + movieNameArray[i].release_date+")");
+	  	//console.log("Title: " + movieNameArray[i].title + " (" + movieNameArray[i].release_date+")");
 	  	var title = movieNameArray[i].title;
 	  	var year = movieNameArray[i].release_date
-	  	console.log("Overview: " + movieNameArray[i].overview);
+	  	//console.log("Overview: " + movieNameArray[i].overview);
 	  	var description  = movieNameArray[i].overview;
-	  	console.log("Poster Path: " + posterURL + movieNameArray[i].poster_path);
+	  	//console.log("Poster Path: " + posterURL + movieNameArray[i].poster_path);
 	  	var poster = posterURL + movieNameArray[i].poster_path;
-	  	console.log("------------------------------------------------");
+	  	//console.log("------------------------------------------------");
 	  	//create the movie object
 	  	var movie = new Movie(title, year, poster, description);
 	  	//push the movie objects into an array
 	  	movieArray.push(movie);
-
 	  }	
+	  renderPoster(movieArray);
+	  
+
 	});
 
 }
 
-//function that checks which movies are playing in theaters
-function getShowtimes(){
-	var zipCode = "33176";
-	var showtimeURL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=2018-03-18&zip="+zipCode+"&api_key="+showTimeApi;
-
-	$.ajax({
-	  url: showtimeURL,
-	  method: "GET"
-	}).then(function(response) {
-	  console.log(response);
-	  console.log("Response size: " +response.length);
-	  for(var j = 0; j < response.length; j++){
-		  	//get the title of the movie
-		  	if(typeof response[j].title != "undefined"){
-		  		console.log("Title: " + response[j].title);
-
-		  	}
-		  	if(typeof response[j].topCast != "undefined"){
-		  		//get the case of the movie
-		  		console.log("Cast: " + response[j].topCast[0]);
-		  	}
-
-			//get the theater which is contained in an array of showtime
-			for(var i = 0; i < response[j].showtimes.length; i++){
-				if(typeof response[j].showtimes[i].theatre.name != "undefined"){
-					console.log("Theater: " + response[j].showtimes[i].theatre.name);
-				}
-				if(typeof response[j].showtimes[i].dateTime != "undefined"){
-					console.log("Times: " + response[j].showtimes[i].dateTime);
-				}
-			}
-	  }	
-	});
+function buildMovieArray(genreId, callback){
+	return callback(genreId);
 }
-
 
 //function to get the trailer of the movie via movieDB ID
 function getTrailer(movieID){
