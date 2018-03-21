@@ -6,7 +6,7 @@ var uiConfig = {
 	signInOptions: [
 		{
 			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-			requireDisplayName: false
+			requireDisplayName: true
 		}
 	],
 	callbacks: {
@@ -29,7 +29,12 @@ ui.start('#firebaseui-auth-container', uiConfig);
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		// User is signed in.
+		console.log(user);
+		sessionStorage.setItem("currentUser", user.uid);
 	} else {
 		// No user is signed in.
+		ui.start('#firebaseui-auth-container', uiConfig);
 	}
 });
+
+// .Kb.uid
