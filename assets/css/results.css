@@ -36,6 +36,9 @@ header h1{
 .spacer{
   height: 15px;
 }
+#displayResults{
+  
+}
 .thumbnail{
   max-width: 200px;
   float: left;

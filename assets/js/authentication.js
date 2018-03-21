@@ -1,35 +1,44 @@
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// global variables used 
+var email;
+var password;
+var user;
 
-var uiConfig = {
-	//All the seeting for the authenticcation method go here
-	signInOptions: [
-		{
-			provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-			requireDisplayName: false
-		}
-	],
-	callbacks: {
-		signInSuccess: function (currentUser, credential, redirectUrl) {
-			return true;
-		},
-		uiShown: function () {
-			document.getElementById('loader').style.display = 'none';
-		}
-	},
-	signInFlow: 'popup',
-	signInSuccessUrl: 'results.html'
+function redirectPage(){
+	window.open('../../results.html');
 }
 
-ui.start('#firebaseui-auth-container', uiConfig);
+function login(evt) {
+	evt.preventDefault();
+	email = $('#username').val();
+	password = $('#password').val();
+	sessionStorage.clear();
+	// Firebase Sign-In user with email and password
+	// Session persistent autentication method
+	firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+		.then(function () {
+			// Existing and future Auth states are now persisted in the current
+			// session only. Closing the window would clear any existing state even
+			// if a user forgets to sign out.
+			// ...
+			// New sign-in will be persisted with session persistence.
+			return firebase.auth().signInWithEmailAndPassword(email, password);
+		})
+		.then(function(status) {
+			// console.log("status is: ", status);
+			redirectPage();
 
+		})
+		.catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			console.log(errorCode + "\n" + errorMessage);
+		});
+}
 
-// Get the currently signed -in user
+var loginBtn = document.getElementById("loginBtn")
+loginBtn.onclick = login; 
 
-firebase.auth().onAuthStateChanged(function (user) {
-	if (user) {
-		// User is signed in.
-	} else {
-		// No user is signed in.
-	}
+$(document).ready(function () {
+	//onClick event for the Login Button
 });
