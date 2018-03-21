@@ -45,3 +45,7 @@ header h1{
   display: inline-block;
   margin-right: 10px;
 }
+#submit-button{
+  margin-top: 10px;
+  margin-bottom:30px;
+}
