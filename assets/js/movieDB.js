@@ -92,8 +92,8 @@ function getMovies(genreId){
 	  	//push the movie objects into an array
 	  	movieArray.push(movie);
 	  }	
-
-	  return movieArray;
+	  renderPoster(movieArray);
+	  
 
 	});
 
