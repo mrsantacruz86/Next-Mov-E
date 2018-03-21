@@ -5,6 +5,13 @@ var listOfGenres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Docu
 function populateChecklist(list){
 	//This elements are dynamically created and nested inside each other
 	var $checkboxList = $('<div>');
+	// <div class="form-check">
+	// <input class="form-check-input" type="checkbox" value="Western" id="Western">
+	// <label class="form-check-label" for="Western">Western</label>
+	// </div>
+
+
+
 	list.forEach(element => {
 		
 		var $checkbox = $('<div>');
