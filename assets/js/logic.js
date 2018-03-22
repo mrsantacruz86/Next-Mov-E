@@ -13,14 +13,15 @@ function populateChecklist(list){
 
 
 	list.forEach(element => {
-		
-		var $checkbox = $('<div>');
-		var $label = $('<label>');
-		var $chxBox = $('<input type="checkbox">');
-		$checkbox.addClass('checkbox');
-		$chxBox.attr('id', list[element]);
-		$label.append(list[element]);
-		$chxBox.prependTo($label);
+
+		var $checkbox = $('<div class="form-check">');
+		var $label = $('<label class="form-check-label">');
+		var $cbx = $('<input type="checkbox" class="form-check-input">');
+		$cbx.attr('id', 'cb-' + element);
+		$cbx.attr('value', element);
+		$cbx.appendTo($checkbox);
+		$label.attr('for', 'cb-' + element);
+		$label.append(element);
 		$label.appendTo($checkbox);
 		$checkbox.appendTo($checkboxList);
 	});
@@ -28,7 +29,6 @@ function populateChecklist(list){
 	was created to the #checkList element in the DOM */
 	$checkboxList.appendTo($('#checkList'));
 }
-
 populateChecklist(listOfGenres);
 
 
@@ -46,75 +46,11 @@ $("#submit-button").on("click",function(event){
 	userGenres = [];
 	$('#checkList > input').each(function(){
 		if(this.checked){
-			userGenres[i] = (this.attr('id'));
+			userGenres[i] = (this.attr('value'));
 		}
 		console.log(userGenres);
 	});
-
-	// if($("#Action").is(":checked")){
-	// 	userGenres.push(genreMap["Action"]);
-	// }
-	// if($("#Adventure").is(":checked")){
-	// 	userGenres.push(genreMap["Adventure"]);
-	// }
-	// if($("#Animation").is(":checked")){
-	// 	userGenres.push(genreMap["Animation"]);
-	// }
-	// if($("#Comedy").is(":checked")){
-	// 	userGenres.push(genreMap["Comedy"]);
-	// }
-	// if($("#Crime").is(":checked")){
-	// 	userGenres.push(genreMap["Crime"]);
-	// }
-	// if($("#Documentery").is(":checked")){
-	// 	userGenres.push(genreMap["Documentary"]);
-	// }
-	// if($("#Drama").is(":checked")){
-	// 	userGenres.push(genreMap["Drama"]);
-	// }
-	// if($("#Family").is(":checked")){
-	// 	userGenres.push(genreMap["Family"]);
-	// }
-	// if($("#Fantasy").is(":checked")){
-	// 	userGenres.push(genreMap["Fantasy"]);
-	// }
-	// if($("#History").is(":checked")){
-	// 	userGenres.push(genreMap["History"]);
-	// }
-	// if($("#Horror").is(":checked")){
-	// 	userGenres.push(genreMap["Horror"]);
-	// }
-	// if($("#Music").is(":checked")){
-	// 	userGenres.push(genreMap["Music"]);
-	// }
-	// if($("#Mystery").is(":checked")){
-	// 	userGenres.push(genreMap["Mystery"]);
-	// }
-	// if($("#Romance").is(":checked")){
-	// 	userGenres.push(genreMap["Romance"]);
-	// }
-	// if($("#Science-Fiction").is(":checked")){
-	// 	userGenres.push(genreMap["Science-Fiction"]);
-	// }
-	// if($("#Thriller").is(":checked")){
-	// 	userGenres.push(genreMap["Thriller"]);
-	// }
-	// if($("#War").is(":checked")){
-	// 	userGenres.push(genreMap["War"]);
-	// }
-	// if($("#Western").is(":checked")){
-	// 	userGenres.push(genreMap["Western"]);
-	// }
-
-
-
-	for (var i =0; i < userGenres.length; i++) {
-		//make strng for genre
-		genre = userGenres[i];
-
-	}
 	
-
 	getMovies(genre);
 });
 

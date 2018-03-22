@@ -81,7 +81,7 @@ function getMovies(genreId){
 	  for(var i = 0; i < movieNameArray.length; i++){
 	  	//console.log("Title: " + movieNameArray[i].title + " (" + movieNameArray[i].release_date+")");
 	  	var title = movieNameArray[i].title;
-	  	var year = movieNameArray[i].release_date
+	  	var year = movieNameArray[i].release_date;
 	  	//console.log("Overview: " + movieNameArray[i].overview);
 	  	var description  = movieNameArray[i].overview;
 	  	//console.log("Poster Path: " + posterURL + movieNameArray[i].poster_path);
@@ -93,8 +93,6 @@ function getMovies(genreId){
 	  	movieArray.push(movie);
 	  }	
 	  renderPoster(movieArray);
-	  
-
 	});
 
 }
