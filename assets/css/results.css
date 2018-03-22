@@ -36,9 +36,6 @@ header h1{
 .spacer{
   height: 15px;
 }
-#displayResults{
-  
-}
 .thumbnail{
   max-width: 200px;
   float: left;
@@ -48,4 +45,8 @@ header h1{
 #submit-button{
   margin-top: 10px;
   margin-bottom:30px;
+}
+.form-check-label{
+  margin-left: 10px;
+  font-weight: normal;
 }
